@@ -85,9 +85,14 @@ class FrmAstro(QMainWindow):
                 x, y = pyautogui.position()
                 
                 # Randomly move the mouse a little bit
-                new_x = x + random.randint(-100, 100)
-                new_y = y + random.randint(-100, 100)
+                new_x = x + random.randint(-1, 1)
+                new_y = y + random.randint(-1, 1)
                 
+                # Check if new position is within screen bounds
+                if new_x < 0 or new_x >= screen_width:
+                    new_x = random.randint(0, screen_width - 1)  # Reset to a random valid position
+                if new_y < 0 or new_y >= screen_height:
+                    new_y = random.randint(0, screen_height - 1)  # Reset to a random valid position
                 # Move the mouse to the new position
                 pyautogui.moveTo(new_x, new_y, duration=0.1)
                 
