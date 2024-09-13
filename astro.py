@@ -79,20 +79,22 @@ class FrmAstro(QMainWindow):
 
     # Mouse Jakkler
     def jiggle_mouse(self):
+        screen_width, screen_height = pyautogui.size()  # Get screen 
+        pyautogui.FAILSAFE = False
         while True:
             if self.AstroActivate_Flag:
                 # Get the current mouse position
                 x, y = pyautogui.position()
                 
                 # Randomly move the mouse a little bit
-                new_x = x + random.randint(-1, 1)
-                new_y = y + random.randint(-1, 1)
+                new_x = x + random.randint(-10, 10)
+                new_y = y + random.randint(-10, 10)
                 
                 # Check if new position is within screen bounds
-                if new_x < 0 or new_x >= screen_width:
-                    new_x = random.randint(0, screen_width - 1)  # Reset to a random valid position
-                if new_y < 0 or new_y >= screen_height:
-                    new_y = random.randint(0, screen_height - 1)  # Reset to a random valid position
+                if new_x < 100 or new_x >= screen_width-100:
+                    new_x = random.randint(100, screen_width - 100)  # Reset to a random valid position
+                if new_y < 100 or new_y >= screen_height-100:
+                    new_y = random.randint(100, screen_height - 100)  # Reset to a random valid position
                 # Move the mouse to the new position
                 pyautogui.moveTo(new_x, new_y, duration=0.1)
                 
