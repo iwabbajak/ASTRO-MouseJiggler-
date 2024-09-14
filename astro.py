@@ -97,6 +97,7 @@ class FrmAstro(QMainWindow):
                     new_y = random.randint(100, screen_height - 100)  # Reset to a random valid position
                 # Move the mouse to the new position
                 pyautogui.moveTo(new_x, new_y, duration=0.1)
+                pyautogui.press('left')
                 
                 # Wait for a short period before the next jiggle
                 time.sleep(1)
