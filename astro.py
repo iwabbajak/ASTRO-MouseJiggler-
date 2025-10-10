@@ -113,7 +113,7 @@ class FrmAstro(QMainWindow):
                 
                 # Move and click
                 pyautogui.moveTo(new_x, new_y, duration=0.5)
-                pyautogui.press('left')
+                # pyautogui.press('left')
                 
                 # Check if 8 minutes (480s) have passed for Alt+Tab
                 if time.time() - last_alt_tab_time >= 20:
